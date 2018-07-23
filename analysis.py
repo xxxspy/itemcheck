@@ -220,8 +220,8 @@ def generate_report(data: pd.DataFrame, factors: pd.DataFrame, outpath: Path):
 
 
 def read_excel(fpath):
-    data = pd.read_excel('./data.xlsx', 'data')
-    factors = pd.read_excel('./data.xlsx', 'factors')
+    data = pd.read_excel(fpath, 'data')
+    factors = pd.read_excel(fpath, 'factors')
     data.dropna(inplace=True)
     return data, factors
 
