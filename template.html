@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>题目分析-监测中心</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+  <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <div class="navbar-wrapper">
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+              aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active">
+                <a href="#">置顶</a>
+              </li>
+              <li>
+                <a href="#reliability">信度</a>
+              </li>
+              <li>
+                <a href="#validaty">效度</a>
+              </li>
+              <li>
+                <a href="#pearson">相关</a>
+              </li>
+              <li>
+                <a  href="#quality">测试题目的难度与区分度</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+    </div>
+  </div>
+  <div class="container" >
+    <div class="row featurette">
+      <div class="col-md-10 col-md-offset-1">
+        <h2 id="reliability" class="featurette-heading">一, 信度
+        </h2>
+        <p class="lead">信度指测验结果的一致性、稳定性及可靠性。换句话说，若用同一份测量工具反复测量学生的某种心理特质，则其多次测量的结果间的一致性程度就叫信度。信度是衡量一个量表质量高低的重要指标之一，一个好的测量必须具有较高的信度。一般多以内部一致性系数来表示测验信度的高低。信度系数愈高表示该测验的结果愈一致、稳定与可靠。
+        统计上用Cronbach’s alpha信度系数评价量表中各题项得分间的一致性，是目前最常用的信度系数。其取值范围介于0~1之间，1表示这组题目完全符合“尺”的特质，而0表示完全不符合。信度系数最好在0.8以上，0.6～0.8之间可以接受，0.6以下就要考虑重新编试卷和问卷。
+        </p>
+        <p class="lead">当前试题总体信度为: {reliability}</p>
+      </div>
+    </div>
+    <div class="row featurette">
+      <div class="col-md-10 col-md-offset-1">
+        <h2 id="validaty" class="featurette-heading">二, 效度
+        </h2>
+        <p class="lead">效度（Validity）即有效性，它是指测量工具或手段能够准确测出所需测量的事物的程度。
+          效度是指所测量到的结果反映所想要考察内容的程度，测量结果与要考察的内容越吻合，则效度越高；反之，则效度越低。
+          用mplus进行效度检验时，如果CFI和TLI值都大于0.85，即评判模型拟合程度较好；另外若RMSEA低于0.2，则认为模型拟合较稳定（引自TIMSS
+        2007年度技术报告）；若单个题目载荷值大于0.3则说明题目具有较好的结构效度。
+        </p>
+      </div>
+    </div>
+    <div class="row featurette">
+      <div class="col-md-10 col-md-offset-1">
+        <h2 id="pearson" class="featurette-heading">三, 相关
+        </h2>
+        <p class="lead">相关是指具有相关关系的不同现象之间的关系程度。即变量之间的数量关系不十分严格，
+          但却存在某种依存关系。相关分析是研究变量间相互关系紧密程度的统计分析方法。
+          相关系数反应相关程度的大小。
+          一般0.4及以上表示相关程度较好，0.3~0.4表示相关程度良好，修正后更好，0.2~0.3表示相关程度尚可，单需修改，
+          0.2以下需要淘汰。本部分主要呈现试卷维度间及与总分的相关。
+        </p>
+        <div>
+          {pearson}
+        </div>
+      </div>
+    </div>
+    <div class="row featurette">
+      <div class="col-md-10 col-md-offset-1">
+        <h2 id="quality" class="featurette-heading">
+          四, 测试题目的难度与区分度
+        </h2>
+        <h3 class="featurette-heading">1.难度 
+        </h3>
+        <p class="lead">难度系数反映试题的难易程度，一个试题，
+          如果大部分学生都能答对，则该题的难度小；如果大部分学生都不能答对，则该题的难度就大。 
+          难度系数一般采用试题的通过率或平均得分率来计算。难度系数的取值范围为0~1，值越小表示试题越难，
+          值越大表示试题越容易。
+        一般来说，难度值在0.8以上为容易，0.3~0.8之间为中等难度，0.2以下为难题。试题难度一般在0.3~0.6之间为宜。
+        </p>
+
+        <h3 class="featurette-heading">2.区分度
+        </h3>
+        <p class="lead"> 试卷题目的区分度反映试题对学生能力差异的区分能力。
+          具有良好区分度的试题，能将不同能力水平的学生区分开来，也就是说，在该题上水平高的学生在试卷总分上得高分，
+          在该题上水平低的学生在试卷总分上得低分。反之，区分度低的试题则不能很好地鉴别不同能力水平的学生，
+          在该题上水平高于水平低的学生，在试卷总分上所得分数差不多，甚至正好相反。
+          区分度一般采用相关系数来计算，取值范围在-1~1之间，值越大表示区分度越好。测量学家伊贝尔认为：试题的区分度在0.4以上表明此题的区分度很好，
+          0.3～0.4表明此题的区分度较好，0.2～0.3表明此题的区分度不太好需修改，0.2以下则表明此题的区分度不好应淘汰。
+        </p>
+        <h3>3.题目难度与区分度的具体结果</h3>
+        <h4>(1)难度和区分度曲线</h4>
+          {diff_dis_img}
+        <h4>(2)题目难度分布</h4>
+          {diff_table}
+        <h4>(3)题目区分度分布</h4>
+          {dist_table}
+        <h4>(4)试题质量参数</h4>
+          {item_quality}
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+
+</html>
